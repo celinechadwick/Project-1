@@ -1,0 +1,57 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0 0 0 0;
+}
+
+.container {
+  height: 800px;
+  width: 800px;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+.game-area {
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(green, grey);
+  margin: 10px;
+  height: 700px;
+  width:700px;
+  border: #000 1px solid;
+
+}
+.box {
+  position: absolute;
+  top: 10px;
+  height:35px;
+  width: 35px;
+  background: linear-gradient(red,pink);
+  margin: 0 40px;
+  border: #000  solid;
+  border-radius: 25px;
+  text-align: center;
+  font-size: 18px;
+}
+
+
+.start {
+
+}
+.img {
+max-width:100%;
+max-height:100%;
+margin: auto;
+display:block;
+
+}
+/*GAMEPLAY CLASSES*/
+.animate-box  {
+  height:50px;
+  width: 50px;
+  margin: 1000px 100px 0px 50px;
+  border: #000  solid;
+  display: inline-block;
+  transition: all 10s;
+
+}
