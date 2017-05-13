@@ -1,8 +1,7 @@
 $(document).ready(function() {
   console.log("working")
 
-  var score = 0;
-  var strikes = 0;
+
   var sequence = [];
 
   // var $divMaker = function(){
@@ -12,9 +11,14 @@ $(document).ready(function() {
 
 
   $(".box").hide()
+  $("#answer").hide();
+  $("#submit").hide();
 
   $("#start-button").on("click", function() {
     $(".box").show();
+    $("#answer").show();
+    $("#submit").show();
+
     $("#start-button").hide();
     $falling();
   });
@@ -22,54 +26,64 @@ $(document).ready(function() {
 
   var $falling = function() {
     // for-loop for random animation
-    // for(let i = 0; i < $(".box").length; i++)
     for (var i = 0; i < 4; i++) {
       var randomNumber = Math.ceil(Math.random() * 100);
       $(".box").eq(i).text(randomNumber);
       sequence.push(randomNumber);
 
-      // ${".box"}.each(function() {
-      //     //set random color for an array on each reload
-      //     var randomNumber = Math.ceil(Math.random() * 100);
-      //   $(this).text(randomNumber);
-      //   sequence.push(randomNumber);
-      // };
-
       $(".box").eq(i).animate({
-        top: (Math.random() * 200 + 350),
-        left: Math.random() * 200 + 60
-      }, 4000); // end for-loop
+        top: (Math.random() * 200 + 150),
+        left: Math.random() * 400 + 60
+      }, 2000); // end for-loop
     }
-
-
     console.log(sequence, "SEQUENCE");
   };//end of $falling()
-  $(".box").on("click", function(){
-    var $justClicked = parseInt($(this).text())
-    var $clickedNumbers = sequence.each(function(box) {
-      parseInt($(box).text());
-      console.log($clickedNumbers, "CLICKED NUMBERS")
-    });
-
-    $(this).hide();
-    // console.log($justClicked);
-    // console.log($clickedNumbers)
-
-    $clickedNumbers.each(function() {
-      if ($justClicked >= $clickedNumbers) {
-        console.log("win");
-        $("#start-button").show();
-      } else if ($justClicked <= $clickedNumbers) {
-        console.log("wrong order")
-      }
-
-    });
-  });
+  // $(".box").on("click", function(){
+  //   var $justClicked = []
+  //   parseInt($(this).text());
+  //   $justClicked.push()
+  //   //
+  //   // var $sequenceNums = sequence.each(function(box) {
+  //   //     parseInt($(box).text())
+  //   //   });
+  //
+  //   $(this).hide();
+  //   // console.log($justClicked);
+  //   // console.log($clickedNumbers)
+  //   for (var i = 0; i < sequence.length; i++) {
+  //     if ($justClicked >= sequence[i]) {
+  //       console.log("win");
+  //       $("#start-button").show();
+  //     } else if ($justClicked <= sequence[i]) {
+  //       console.log("wrong order")
+  //     }
+  //
+  //   };
+  // });
 
   // while (score < 100) {
   //   console.log("hi")
   // }
+  var accumulator= 0
+  console.log(accumulator, "initial accumulator value")
 
+  $("#submit").on("click", function() {
+//for loop to find the sum of the numbers
+    for (var i = 0; i < sequence.length; i++) {
+       accumulator+= sequence[i];
+    };
+    //ADD INPUT FROM SUBMIT BUTTON HERE
+    var userInput = parseInt($("#answer").val());
+    console.log(userInput, "user input");
+    if (userInput < accumulator) {
+      alert("you lose, too low. The correct value is " + accumulator)
+    }
+    else if (userInput === NaN) {
+      alert("please enter a number");
+    }
+
+
+  });
 
 
   // $(".box").addClass("animate-box")

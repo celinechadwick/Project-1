@@ -2,41 +2,69 @@ html, body {
   height: 100%;
   width: 100%;
   margin: 0 0 0 0;
+  background-color: rgba(155,155,155,.5);
+  overflow: hidden;
 }
 
-.container {
+/*.container {
   height: 800px;
-  width: 800px;
+  width: 90%;
   align-items: center;
   text-align: center;
   overflow: hidden;
-}
+}*/
 .game-area {
   display: flex;
   justify-content: center;
-  background: linear-gradient(green, grey);
+  background-color: rgba(232,233,232,0.6);
+  border-radius: 50px;
   margin: 10px;
-  height: 700px;
-  width:700px;
-  border: #000 1px solid;
+  height: 80%;
+  width: 80%;
+  margin:0 auto;
+  border: #000 2px solid;
+  overflow: hidden;
 
 }
 .box {
   position: absolute;
   top: 10px;
-  height:35px;
-  width: 35px;
-  background: linear-gradient(red,pink);
-  margin: 0 40px;
-  border: #000  solid;
-  border-radius: 25px;
+  height:50px;
+  width: 50px;
+  background: rgba(240, 41, 52, 0.6);
+  margin:  60px;
+  border: #000 2px solid;
+  border-radius: 50%;
   text-align: center;
-  font-size: 18px;
+  font-size: 22px;
+
 }
 
+.inputs-div {
+  padding: 20px;
+  text-align: center;
+  border-radius: 25px;
+}
+#start-button {
+background-color: rgba(240, 41, 52, 0.6);
 
-.start {
-
+}
+#submit {
+  background-color: rgba(149,212,155,0.6);
+}
+#answer {
+  background-color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  height:100px;
+  width:200px;
+  border: #000 2px solid;
+}
+.inputs {
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+  border: #000 2px solid;
+  font-size: 20px;
 }
 .img {
 max-width:100%;
@@ -44,14 +72,13 @@ max-height:100%;
 margin: auto;
 display:block;
 
-}
-/*GAMEPLAY CLASSES*/
-.animate-box  {
-  height:50px;
-  width: 50px;
-  margin: 1000px 100px 0px 50px;
-  border: #000  solid;
-  display: inline-block;
-  transition: all 10s;
+/*}
+.scoreboard {
+height: 25%;
+width:200px;
+flex-direction: row;
+border: #000 1px solid;*/
+
+
 
 }
