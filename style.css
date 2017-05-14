@@ -6,33 +6,42 @@ html, body {
   overflow: hidden;
 }
 
-/*.container {
-  height: 800px;
-  width: 90%;
-  align-items: center;
+.stopwatch {
+  box-sizing: border-box;
+  margin:10px;
+  height: 300px;
+  width: 30%;
+  float:left;
+  padding: 20px;
+  /*align-items: center;
   text-align: center;
-  overflow: hidden;
-}*/
+  overflow: hidden;*/
+  background-color: rgba(232,233,232,0.6);
+  border: #000 2px solid;
+  border-radius: 50px;
+  box-shadow: 5px 10px 5px #888888;
+}
 .game-area {
-  display: flex;
+  box-sizing: border-box;
+  float: left;
   justify-content: center;
   background-color: rgba(232,233,232,0.6);
   border-radius: 50px;
   margin: 10px;
-  height: 80%;
-  width: 80%;
-  margin:0 auto;
+  height: 600px;
+  width: 65%;
+  margin: 10px;
   border: #000 2px solid;
-  overflow: hidden;
+  /*Box shadow tutorial found at https://www.w3schools.com/cssref/css3_pr_box-shadow.asp*/
+  box-shadow: 5px 10px 5px #888888
 
 }
 .box {
   position: absolute;
-  top: 10px;
-  height:50px;
-  width: 50px;
+  height:40px;
+  width: 40px;
   background: rgba(240, 41, 52, 0.6);
-  margin: 0 60px;
+  margin: 0 40px;
   padding:30px;
   border: #000 2px solid;
   border-radius: 50%;
@@ -40,11 +49,7 @@ html, body {
   font-size: 27px;
 }
 
-.inputs-div {
-  padding: 20px;
-  text-align: center;
-  border-radius: 25px;
-}
+
 #start-button {
 background-color: rgba(240, 41, 52, 0.6);
 
@@ -60,25 +65,13 @@ background-color: rgba(240, 41, 52, 0.6);
   border: #000 2px solid;
 }
 .inputs {
+  float:left;
   height: 100px;
   width: 100px;
+  margin: 5px;
   border-radius: 50px;
   border: #000 2px solid;
   font-size: 27px;
-}
-.img {
-max-width:100%;
-max-height:100%;
-margin: auto;
-display:block;
-
-/*}
-.scoreboard {
-height: 25%;
-width:200px;
-flex-direction: row;
-border: #000 1px solid;*/
-
-
-
+  text-align: center;
+  box-shadow: 5px 10px 5px #888888;
 }

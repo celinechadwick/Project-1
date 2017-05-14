@@ -39,7 +39,7 @@ $(document).ready(function() {
       sequence.push(randomNumber);
 
       $(".box").eq(i).animate({
-        top: (Math.random() * 200 + 150),
+        top: (Math.random() * 300 + 150),
         left: Math.random() * 400 + 160
       }, 2000); // end for-loop
     }
@@ -60,11 +60,11 @@ $(document).ready(function() {
 
     //function comparing the guess to the correct sum
     if (userInput < accumulator) {
-      alert("Too low. The correct answer is " + accumulator + " play again!")
+      alert("Too low. The correct answer is " + accumulator)
       $reset();
       $falling();
     }  else if (userInput > accumulator) {
-      alert("Too high, the correct answer is" + accumulator);
+      alert("Too high, the correct answer is " + accumulator);
       $reset();
       $falling();
 
