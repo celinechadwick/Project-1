@@ -1,7 +1,7 @@
 $(document).ready(function() {
   console.log("working")
 
-  var rounds = 0;
+  var rounds = 1;
   //keep track of rounds won
   var sequence = [];
   //keep track of the random numbers
@@ -49,6 +49,7 @@ $(document).ready(function() {
 
   var accumulator= 0
 
+
   $("#submit").on("click", function() {
     //for loop to find the sum of the numbers
     for (var i = 0; i < sequence.length; i++) {
@@ -60,93 +61,88 @@ $(document).ready(function() {
 
     //function comparing the guess to the correct sum
     if (userInput < accumulator) {
-      alert("Too low. The correct answer is " + accumulator)
+      $(".stopwatch").text("GAME OVER: Too low, the correct answer was " + accumulator);
       $reset();
       $falling();
     }  else if (userInput > accumulator) {
-      alert("Too high, the correct answer is " + accumulator);
+    $(".stopwatch").text("GAME OVER: Too high, the correct answer was " + accumulator);
       $reset();
       $falling();
 
     } else if (isNaN(userInput) === true || userInput === "") {
-      alert("Please enter a number");
+    $(".stopwatch").text("Please enter a number")
       accumulator = 0;
-    } else if (userInput === accumulator) {
-      alert("correct!");
-      rounds++
-        if (rounds === 3) {
-          $reset();
-          // $levelTwo();
-
-        }
-    }
+    } else if (userInput === accumulator && rounds < 3) {
+      $(".stopwatch").text("Correct!");
+      rounds++;
+      $(".stopwatch").text("ROUND: " + rounds);
+      $reset();
+      $falling();
+    } else {
+      $(".stopwatch").text("ROUND: " + rounds)
+      $reset();
+        $(".stopwatch").text("Round one complete");
+        rounds = 1;
+        $levelTwo();
+    };
   }); //end of submit else-if
 
+
 //********************************************************************//
-
 //ROUND 2: MULTIPLICATION
-  // var $levelTwo = function() {
-  //   // for-loop for random animation and random single digit number
-  //   for (var i = 0; i < 4; i++) {
-  //     var randomNumber = Math.ceil(Math.random() * 10);
-  //     $(".box").eq(i).text(randomNumber);
-  //     sequence.push(randomNumber);
-  //
-  //     $(".box").eq(i).animate({
-  //       top: (Math.random() * 200 + 150),
-  //       left: Math.random() * 400 + 160
-  //     }, 2000); // end for-loop
-  //   }
-  //   $multiplyEval();
-  // };
-   //end of levelTwo function
+  var $levelTwo = function() {
+    // for-loop for random animation and random single digit number
+    for (var i = 0; i < 4; i++) {
+      var randomNumber = Math.ceil(Math.random() * 10);
+      $(".box").eq(i).text(randomNumber);
+      sequence.push(randomNumber);
+
+      $(".box").eq(i).animate({
+        top: (Math.random() * 200 + 150),
+        left: Math.random() * 400 + 160
+      }, 2000); // end for-loop
+    }
+    $multiplyEval();
+  }; //  end of levelTwo function
 
 
-  // var $multiplyEval = function() {
-  //  var accumulator= 0
-  //
-  // $("#submit").on("click", function() {
-  //   //for loop to find the sum of the numbers
-  //   for (var i = 0; i < sequence.length; i++) {
-  //      accumulator *= sequence[i];
-  //   };
-  //   //the player's guess
-  //    userInput = parseInt($("#answer").val());
+  var $multiplyEval = function() {
+  $("#submit").on("click", function() {
+    //for loop to find the product of the numbers
+    for (var i = 0; i < sequence.length; i++) {
+       accumulator *= sequence[i];
+    };
+    //the player's guess
+     userInput = parseInt($("#answer").val());
 
-    //function comparing the guess to the correct product
-//     if (userInput < accumulator) {
-//       alert("Too low. The correct answer is " + accumulator + " play again!")
-//       console.log(accumulator, "accumlator")
-//       console.log(randomNumber, "random num")
-//       console.log(sequence, "sequence")
-//
-//     }  else if (userInput > accumulator) {
-//       alert("Too high, the correct answer is" + accumulator + " play again!");
-//       $reset();
-//       // $falling();
-//
-//     } else if (isNaN(userInput) === true || userInput === "") {
-//       alert("Please enter a number");
-//       accumulator = 0;
-//     } else if (userInput === accumulator) {
-//       alert("correct!");
-//       rounds++
-//         if (rounds === 3) {
-//           alert("You win!!")
-//           $reset();
-//           // INSERT OVERLAY HERE
-//         }
-//     }
-//   }); //end of submit else-if
-// }; // end of multiplyEval function
+    // function comparing the guess to the correct product
+      if (userInput < accumulator) {
+        $(".stopwatch").text("GAME OVER: Too low, the correct answer was " + accumulator);
+        $reset();
+        $falling();
+      }  else if (userInput > accumulator) {
+      $(".stopwatch").text("GAME OVER: Too high, the correct answer was " + accumulator);
+        $reset();
+        $falling();
 
+      } else if (isNaN(userInput) === true || userInput === "") {
+      $(".stopwatch").text("Please enter a number")
+        accumulator = 0;
+      } else if (userInput === accumulator && rounds < 3) {
+        $(".stopwatch").text("Correct!");
+        rounds++;
+        $(".stopwatch").text("ROUND: " + rounds);
+        $reset();
+        $falling();
+      } else {
+        $(".stopwatch").text("ROUND: " + rounds)
+        $reset();
+          $(".stopwatch").text("Round one complete");
+          rounds = 1;
 
-
-
-
-
-
-
+      };
+    }); //end of submit else-if
+}; // end of multiplyEval function
 
 
 
