@@ -132,19 +132,24 @@ var $resetTwo = function() {
 
 
   var $multiplyEval = function() {
+  $('#submit').off()
   $("#submit").on("click", function() {
     //for loop to find the product of the numbers
     for (var i = 0; i < sequenceTwo.length; i++) {
        accumulatorTwo*= sequenceTwo[i];
     };
      var userInputTwo = parseInt($("#answer").val());
-
+     console.log(sequenceTwo);
+     console.log('roundsTwo: '+ roundsTwo);
+     console.log('userInputTwo: '+ userInputTwo);
+     console.log('rounds: ' + roundsTwo);
     // function comparing the guess to the correct product
       if (userInputTwo < accumulatorTwo) {
         $(".message-box").text("GAME OVER: Too low, the correct answer was " + accumulatorTwo);
         $resetTwo();
         $falling();
       }  else if (userInputTwo > accumulatorTwo) {
+console.log(accumulatorTwo)
       $(".message-box").text("GAME OVER: Too high, the correct answer was " + accumulatorTwo);
       $resetTwo();
       $falling();
@@ -162,7 +167,7 @@ var $resetTwo = function() {
         $(".message-box").text("ROUND: " + roundsTwo)
         $resetTwo();
           $(".message-box").text("Level 2 complete. You win!!!");
-          roundsTwo = 0;
+          roundsTwo = 1;
 
       };
     }); //end of submit else-if
